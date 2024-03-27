@@ -6,12 +6,20 @@ block content
   button(type="button", class="btn btn-secondary", onclick="double()") Press Me
   div#double Two to the power #{power} is #{value}.
 
-  h2 Gizmos
-  each gizmo in gizmos
-    .gizmo
-      h3 gizmo Name: #{gizmo.gizmo_name}
-      p Functionality: #{gizmo.functionality}
-      p Price: $#{gizmo.price}
+  //- Class: gizmo
+  //- Attributes/Types:
+  //-   gizmo_name (string)
+  //-   functionality (string)
+  //-   price (number)
+
+  - const drone = { gizmo_name: "drone", functionality: "Fly around and take pictures", price: 500 }
+  - const camera = { gizmo_name: "camera", functionality: "Take nice pictures", price: 2000 }
+  - const electricSkateboard = { gizmo_name: "electric skateboard", functionality: "ride around", price: 300 }
+
+  p gizmo Name: #{drone.gizmo_name}, functionality: #{drone.functionality}, Price: #{drone.price}
+  p gizmo Name: #{camera.gizmo_name}, functionality: #{camera.functionality}, Price: #{camera.price}
+  p gizmo Name: #{electricSkateboard.gizmo_name}, functionality: #{electricSkateboard.functionality}, Price: #{electricSkateboard.price}
+
 
   script.
     var value = 2;
@@ -23,8 +31,3 @@ block content
         document.getElementById('double').innerText = "Two to the power " + power + " is " + value + ".";
     }
 
-    var gizmos = [
-      { gizmo_name: "Smartwatch", functionality: "Fitness tracking and notifications", price: 199.99 },
-      { gizmo_name: "Mini Drone", functionality: "Aerial photography and entertainment", price: 149.99 },
-      { gizmo_name: "Smart Thermostat", functionality: "Home temperature control and energy savings", price: 249.99 }
-    ];
