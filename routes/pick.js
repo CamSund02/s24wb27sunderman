@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET gizmo page. */
+/* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('gizmo', { title: 'Search Results Gizmo' });
+  res.render('randomitem', { title: 'random' });
 });
 
 module.exports = router;
