@@ -2,9 +2,16 @@ extends layout
 
 block content
   h1= title
-  p this is a change to the pug file #{title}
+  p This is a change to the Pug file #{title}
   button(type="button", class="btn btn-secondary", onclick="double()") Press Me
   div#double Two to the power #{power} is #{value}.
+
+  h2 Gizmos
+  each gizmo in gizmos
+    .gizmo
+      h3 gizmo Name: #{gizmo.gizmo_name}
+      p Functionality: #{gizmo.functionality}
+      p Price: $#{gizmo.price}
 
   script.
     var value = 2;
@@ -15,3 +22,9 @@ block content
         value *= 2;
         document.getElementById('double').innerText = "Two to the power " + power + " is " + value + ".";
     }
+
+    var gizmos = [
+      { gizmo_name: "Smartwatch", functionality: "Fitness tracking and notifications", price: 199.99 },
+      { gizmo_name: "Mini Drone", functionality: "Aerial photography and entertainment", price: 149.99 },
+      { gizmo_name: "Smart Thermostat", functionality: "Home temperature control and energy savings", price: 249.99 }
+    ];
