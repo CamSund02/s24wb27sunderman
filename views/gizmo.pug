@@ -2,3 +2,9 @@ extends layout
 
 block content
   h1= title
+  .container-fluid
+  .row
+    each result in results
+      .col-sm-2
+        p Name: #{gizmo.name}
+        p Description: #{gizmo.functionality}
