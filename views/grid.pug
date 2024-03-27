@@ -1,4 +1,24 @@
 extends layout
 
 block content
-  h1= title
+  p Query rows: #{query.rows}
+  p Query cols: #{query.cols}
+
+  - let rows = Number(query.rows)
+  - let cols = Number(query.cols)
+
+  if (!Number.isInteger(rows) || !Number.isInteger(cols))
+    p Rows and columns must be integers.
+  else if (rows < 3 || rows > 13)
+    p Number of rows must be between 3 and 13.
+  else if (cols < 3 || cols > 13)
+    p Number of columns must be between 3 and 13.
+  else
+    table#outer
+      - for(let i=0; i<10; i++){
+        tr#middle
+          - for(let j=0; j<10; j++){
+            - let value = Math.min(i, j) + 1
+            td = value
+          -}
+      -}
