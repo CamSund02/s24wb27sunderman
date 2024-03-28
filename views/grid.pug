@@ -15,10 +15,9 @@ block content
     p Number of columns must be between 3 and 13.
   else
     table#outer
-      - for(let i=0; i<10; i++){
+      - for(let i=0; i<rows; i++){
         tr#middle
-          - for(let j=0; j<10; j++){
-            - let value = Math.min(i, j) + 1
-            td = value
+          - for(let j=0; j<cols; j++){
+            td= Math.min(i, j) + 1
           -}
       -}
